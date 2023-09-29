@@ -15,6 +15,7 @@
         <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
         <input type="password" name="mdp" class="form-control" id="exampleInputPassword1">
     </div>
+    <div id="erreur"></div>
     <button type="submit" class="btn">Se connecter</button>
 </form>
 </html>

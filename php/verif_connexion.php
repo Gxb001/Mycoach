@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <title>Connectez-vous</title>
-    <!--    <script>
-            function logerr(){
-                var madiv = document.getElementById("erreur");
-                madiv.innerHTML = "Login ou mot de passe incorrect";
-            }
-        </script>-->
 </head>
 <body>
 <?php
@@ -25,7 +20,7 @@ if ($ligne) {
     $motPasseBdd = $ligne['MDP'];
 
     if (!password_verify($mdp, $motPasseBdd)) {
-        //afficher un message d'erreur
+        //affichage erreur de logins
 
     } else if (password_verify($mdp, $motPasseBdd)) {
         session_start();
@@ -38,11 +33,13 @@ if ($ligne) {
         exit;
     }
 } else {
-    //afficher erreur, veuillez vous inscrire
+    //affichage erreur de logins
 }
 $result->closeCursor();
 $connexion = null;
 
 ?>
 </body>
+<script src="../js/script.js">
+</script>
 </html>

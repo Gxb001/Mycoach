@@ -10,6 +10,12 @@
 <?php
 include 'php/connect_bd.php';
 session_start();
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 1800)) {
+    session_unset();
+    session_destroy();
+    header("Location: accueil.php");
+    exit();
+}
 ?>
 <body>
 <div class="container-fluid">
@@ -96,11 +102,11 @@ session_start();
         <!--CAROUSEL BUTTONS-->
         <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="visually-hidden">Precedent</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="visually-hidden">Suivant</span>
         </button>
     </div>
     <!--Seances-->
@@ -121,7 +127,7 @@ session_start();
   </div>
   <div class="card-body">
     <p class="card-text">Vous etes actuellement deconnecté, devenez membre pour avoir acces à nos séances.</p>
-    <a href="#" class="btn btn-secondary">Se connecter</a>
+    <a href="login.php" class="btn btn-secondary">Se connecter</a>
   </div>
 </div>';
             } else {
@@ -148,12 +154,6 @@ session_start();
                 }
                 $result_seanceSp->closeCursor();
             }//deconnecte l'utilisateur si il reste inactif trop longtemps
-            if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 1800)) {
-                session_unset();
-                session_destroy();
-                header("Location: accueil.php");
-                exit();
-            }
             ?>
     </section>
     <!--Coach-->
