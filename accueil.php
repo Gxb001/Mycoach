@@ -45,7 +45,7 @@ session_start();
                         </li>
                     </ul>
                     <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
-                        <a href="#login" class="text-white">Se Connecter</a>
+                        <a href="login.php" class="text-white">Se Connecter</a>
                         <a href="#signup" class="text-white text-decoration-none px-3 py-1 bg-primary rounded-4">Inscription</a>
                     </div>
                 </div>
@@ -144,7 +144,7 @@ session_start();
             if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 1800)) {
                 session_unset();
                 session_destroy();
-                header("Location: index.php");
+                header("Location: accueil.php");
                 exit();
             }
             ?>

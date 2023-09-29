@@ -14,8 +14,8 @@
 </head>
 <body>
 <?php
-include("PHP/connect_bd.php");
-$login = $_POST['login'];
+include("connect_bd.php");
+$login = $_POST['email'];
 $mdp = $_POST['mdp'];
 
 $sql = "SELECT * FROM utilisateurs WHERE Email = '$login'";
@@ -33,7 +33,7 @@ if ($ligne) {
         $_SESSION['ID'] = $ligne['ID_Utilisateur'];
         $_SESSION['login'] = $login;
         // Retour vers la page d'entr�e du site
-        header("Location: Visiteurs.php");
+        header("Location: ../accueil.php");
         // On quitte le script courant sans effectuer les �ventuelles  instructions qui suivent
         exit;
     }

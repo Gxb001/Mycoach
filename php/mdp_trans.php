@@ -10,7 +10,7 @@ $res = $connexion->query($req);
 // Exécution de la requête SQL
 if ($res) {
     while ($ligne = $res->fetch()) {
-        $mdp_hache = password_hash($ligne['mdp'], PASSWORD_DEFAULT);
+        $mdp_hache = password_hash($ligne['MDP'], PASSWORD_DEFAULT);
         $req2 = "UPDATE utilisateurs SET MDP = '$mdp_hache' WHERE ID_Utilisateur = '$ligne[ID_Utilisateur]'";
         $res2 = $connexion->query($req2);
     }
