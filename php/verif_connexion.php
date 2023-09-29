@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.css">
     <title>Connectez-vous</title>
 </head>
 <body>
@@ -20,7 +19,8 @@ if ($ligne) {
     $motPasseBdd = $ligne['MDP'];
 
     if (!password_verify($mdp, $motPasseBdd)) {
-        //affichage erreur de logins
+        sesssion_start();
+        $_SESSION['erreur'] = "Email ou mot de passe invalide";
 
     } else if (password_verify($mdp, $motPasseBdd)) {
         session_start();
@@ -33,7 +33,8 @@ if ($ligne) {
         exit;
     }
 } else {
-    //affichage erreur de logins
+    sesssion_start();
+    $_SESSION['erreur'] = "Email ou mot de passe invalide";
 }
 $result->closeCursor();
 $connexion = null;
