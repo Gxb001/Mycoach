@@ -45,8 +45,15 @@ session_start();
                         </li>
                     </ul>
                     <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
-                        <a href="login.php" class="text-white">Se Connecter</a>
-                        <a href="#signup" class="text-white text-decoration-none px-3 py-1 bg-primary rounded-4">Inscription</a>
+                        <?php
+                        if (isset($_SESSION['ok'])) {
+                            echo '<a href="php/deconnexion.php" class="text-white text-decoration-none px-3 py-1 bg-primary rounded-4">Deconnexion</a>';
+                        }
+                        else{
+                            echo '<a href="login.php" class="text-white">Se Connecter</a>';
+                            echo'<a href="#signup" class="text-white text-decoration-none px-3 py-1 bg-primary rounded-4">Inscription</a>';
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
