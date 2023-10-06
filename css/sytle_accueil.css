@@ -1,0 +1,49 @@
+/* Global */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+body{
+    font-family: 'Kanit', sans-serif;
+    background-color: #FFAA00;
+    overflow-x: hidden;
+}
+/* Carousel*/
+.c-img{
+    height: 480px;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.c-item{
+    height: 100%;
+}
+
+/* Sidebar */
+@media(max-width: 991.98px) {
+.sidebar{
+    background-color : #333;
+    backdrop-filter: blur(10px);
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #424242;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-button:horizontal {
+    width: 10px;
+    background-color: #ccc;
+}
+
+::-webkit-scrollbar-button:vertical {
+    height: 10px;
+    background-color: #ccc;
+}
+
