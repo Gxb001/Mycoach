@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <title>Login</title>
+    <title>Connexion</title>
 </head>
 <a href="accueil.php">Accueil</a>
+<section id="formulaire_de_co">
 <form action="php/verif_connexion.php" method="post">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Courriel</label>
@@ -19,11 +20,11 @@
     <div id="error_login"></div>
     <button type="submit" class="btn">Se connecter</button>
 </form>
-<script src="js/script.js"></script>
+</section>
 <script>
+    //Fonction appeller lors d'une erreur de connexion
     const urlParams = new URLSearchParams(window.location.search);
     const data = urlParams.get('data');
-
     if (data === "activate_logger") {
         madiv = document.getElementById("error_login");
         madiv.innerHTML = "Login ou mot de passe incorrect ! ";

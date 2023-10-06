@@ -19,6 +19,7 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
 ?>
 <body>
 <div class="container-fluid">
+    <section id="barre_de_nav">
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -64,6 +65,8 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
             </div>
         </div>
     </nav>
+    </section>
+    <section id="defilement">
     <!--CAROUSEL-->
     <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -74,7 +77,7 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active c-item">
-                <img src="course.jpg" class="d-block w-100 c-img" alt="1">
+                <img src="includes/course.jpg" class="d-block w-100 c-img" alt="1">
                 <div class="carousel-caption top-0 mt-4 d-none d-md-block">
                     <p class="mt-5 fs-3 text-uppercase">Course</p>
                     <h1 class="display-1 fw-bolder text-capitalize">Course exterieur en groupe</h1>
@@ -82,7 +85,7 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
                 </div>
             </div>
             <div class="carousel-item c-item">
-                <img src="yoga.jpg" class="d-block w-100 c-img" alt="2">
+                <img src="includes/yoga.jpg" class="d-block w-100 c-img" alt="2">
                 <div class="carousel-caption top-0 mt-4 d-none d-md-block">
                     <p class="mt-5 fs-3 text-uppercase">Yoga</p>
                     <h1 class="display-1 fw-bolder text-capitalize">Yoga chaque week end en groupe</h1>
@@ -90,7 +93,7 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
                 </div>
             </div>
             <div class="carousel-item c-item">
-                <img src="crossfit.jpg" class="d-block w-100 c-img" alt="3">
+                <img src="includes/crossfit.jpg" class="d-block w-100 c-img" alt="3">
                 <div class="carousel-caption top-0 mt-4 d-none d-md-block">
                     <p class="mt-5 fs-3 text-uppercase">Crossfit</p>
                     <h1 class="display-1 fw-bolder text-capitalize">En salle toute la semaine</h1>
@@ -98,6 +101,7 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
                 </div>
             </div>
         </div>
+        <article>
         <!--CAROUSEL BUTTONS-->
         <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -107,7 +111,9 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Suivant</span>
         </button>
+        </article>
     </div>
+    </section>
     <!--Seances-->
     <section id="seances" class="bg-dark mt-1 pb-5">
         <div class="container-lg">
@@ -155,11 +161,12 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
             }//deconnecte l'utilisateur si il reste inactif trop longtemps
             ?>
     </section>
+    <section id="presentation_coach">
     <!--Coach-->
     <div class="row row-cols-1 row-cols-md-2 g-4" id="coach">
         <div class="card-group">
             <div class="card">
-                <img src="femme2.jpg" class="card-img-top" alt="photo1">
+                <img src="includes/coach.jpg" class="card-img-top" alt="photo1">
                 <div class="card-body">
                     <h5 class="card-title">Aurélie</h5>
                     <p class="card-text">Aurélie est une coach sportive passionnée de Pilates. Elle est diplômée d'un
@@ -178,7 +185,9 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
             </div>
         </div>
     </div>
+    </section>
     <!--MODAL Contact-->
+    <section id="contacter_le_coach">
     <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -204,13 +213,15 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
             </div>
         </div>
     </div>
+    </section>
 </div>
+<section id="copyrights">
 <footer class="bg-dark py-5 mt-5">
     <div class="container text-light text-center">
         <p class="display-5 mb-3">MyCoach</p>
         <small class="text-white-50">&copy; Copyright par AurélieF. Tous droits réservés.</small>
     </div>
 </footer>
+</section>
 </body>
-<script src="js/bootstrap.bundle.js"></script>
 </html>
