@@ -17,11 +17,10 @@ $result = $connexion->query($sql);
 $ligne = $result->fetch();
 if ($ligne) {
     $motPasseBdd = $ligne['MDP'];
-
     if (!password_verify($mdp, $motPasseBdd)) {
-        sesssion_start();
-        $_SESSION['erreur'] = "Email ou mot de passe invalide";
-
+        $data = "activate_logger";
+        $url = "../login.php?data=" . urlencode($data);
+        header("Location: " . $url); // Redirection vers la page cible
     } else if (password_verify($mdp, $motPasseBdd)) {
         session_start();
         $_SESSION['ok'] = "oui";
@@ -33,12 +32,12 @@ if ($ligne) {
         exit;
     }
 } else {
-    sesssion_start();
-    $_SESSION['erreur'] = "Email ou mot de passe invalide";
+    $data = "activate_logger";
+    $url = "../login.php?data=" . urlencode($data);
+    header("Location: " . $url); // Redirection vers la page cible
 }
 $result->closeCursor();
 $connexion = null;
-
 ?>
 </body>
 <script src="../js/script.js">

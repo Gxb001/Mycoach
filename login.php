@@ -16,13 +16,17 @@
         <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
         <input type="password" name="mdp" class="form-control" id="exampleInputPassword1">
     </div>
-    <?php
-    session_start();
-    if (isset($_SESSION['erreur'])) {
-        echo "<div class='alert alert-danger' role='alert'>" . $_SESSION['erreur'] . "</div>";
-        unset($_SESSION['erreur']);
-    }
-    ?>
+    <div id="error_login"></div>
     <button type="submit" class="btn">Se connecter</button>
 </form>
+<script src="js/script.js"></script>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const data = urlParams.get('data');
+
+    if (data === "activate_logger") {
+        madiv = document.getElementById("error_login");
+        madiv.innerHTML = "Login ou mot de passe incorrect ! ";
+    }
+</script>
 </html>
