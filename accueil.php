@@ -54,10 +54,9 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
                         <?php
                         if (isset($_SESSION['ok'])) {
                             echo '<a href="php/deconnexion.php" class="text-white text-decoration-none px-3 py-1 bg-primary rounded-4">Deconnexion</a>';
-                        }
-                        else{
+                        } else {
                             echo '<a href="login.php" class="text-white">Se Connecter</a>';
-                            echo'<a href="#signup" class="text-white text-decoration-none px-3 py-1 bg-primary rounded-4">Inscription</a>';
+                            echo '<a href="#signup" class="text-white text-decoration-none px-3 py-1 bg-primary rounded-4">Inscription</a>';
                         }
                         ?>
                     </div>
