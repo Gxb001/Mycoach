@@ -6,6 +6,20 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <title>Connexion</title>
 </head>
+<?php
+include 'php/connect_bd.php';
+session_start();
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 1800)) {
+    session_unset();
+    session_destroy();
+    header("Location: accueil.php");
+    exit();
+}
+if (isset($_SESSION['ok'])) {
+    header("Location: accueil.php");
+    exit();
+}
+?>
 <a href="accueil.php">Accueil</a>
 <section id="formulaire_de_co">
 <form action="php/verif_connexion.php" method="post">
