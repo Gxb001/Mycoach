@@ -175,9 +175,9 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
             </div>
         </div>
     </section>
-<!--footer-->
-<?php
-include 'includes/footer.html';
-?>
+    <!--footer-->
+    <?php
+    include 'includes/footer.html';
+    ?>
 </body>
 </html>

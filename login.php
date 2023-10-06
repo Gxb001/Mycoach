@@ -22,18 +22,18 @@ if (isset($_SESSION['ok'])) {
 ?>
 <a href="accueil.php">Accueil</a>
 <section id="formulaire_de_co">
-<form action="php/verif_connexion.php" method="post">
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Courriel</label>
-        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-        <input type="password" name="mdp" class="form-control" id="exampleInputPassword1">
-    </div>
-    <div id="error_login"></div>
-    <button type="submit" class="btn">Se connecter</button>
-</form>
+    <form action="php/verif_connexion.php" method="post">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Courriel</label>
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+            <input type="password" name="mdp" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div id="error_login"></div>
+        <button type="submit" class="btn">Se connecter</button>
+    </form>
 </section>
 <script>
     //Fonction appeller lors d'une erreur de connexion
