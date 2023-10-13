@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
-body{
+
+body {
     font-family: 'Kanit', sans-serif;
     overflow-x: hidden;
     background-image: url('../medias/gym.jpg');
