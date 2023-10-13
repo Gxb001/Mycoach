@@ -36,7 +36,7 @@
                             echo '<a href="php/deconnexion.php" class="text-white text-decoration-none px-3 py-1 bg-primary rounded-4">Deconnexion</a>';
                         } else {
                             echo '<a href="login.php" class="text-white">Se Connecter</a>';
-                            echo '<a href="#signup" class="text-white text-decoration-none px-3 py-1 bg-primary rounded-4">Inscription</a>';
+                            echo '<a href="inscription.php" class="text-white text-decoration-none px-3 py-1 bg-primary rounded-4">Inscription</a>';
                         }
                         ?>
                     </div>
