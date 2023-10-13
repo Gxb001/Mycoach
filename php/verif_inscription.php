@@ -7,28 +7,39 @@ $firstname= $_POST['prenom'];
 $sexe= $_POST['sexe'];
 $mdp= $_POST['mdp'];
 $email= $_POST['email'];
+$verif = array($name, $firstname);
+
+for ($i = 0; $i < count($verif); $i++) {
+    if (inputspecial($verif[$i])) {
+        $data = "activate_signuperrspecial";
+        $url = "../inscription.php?data=" . urlencode($data);
+        header("Location: " . $url);
+    }
+}
 
 
 /*signup une fois inscrit*/
-if (check_email($email) && check_mdp($mdp) && !check_email_bd($connexion, $email)){
+if (check_email($email) && check_mdp($mdp) && !check_email_bd($connexion, $email) && passwordForm($mdp)) {
     $mdp_crypte = password_hash($mdp, PASSWORD_DEFAULT);
     signup($connexion, $name, $firstname, $sexe, $mdp_crypte, $email);
 }
 else{
     if (!check_email($email)){
         $data = "activate_signuperrmail";
-        $url = "../signup.php?data=" . urlencode($data);
-        header("Location: " . $url); // Redirection vers la page cible
-    }
-    if (!check_mdp($mdp)){
+        $url = "../inscription.php?data=" . urlencode($data);
+        header("Location: " . $url);
+    } else if (!check_mdp($mdp)) {
         $data = "activate_signuperrmdp";
-        $url = "../signup.php?data=" . urlencode($data);
-        header("Location: " . $url); // Redirection vers la page cible
-    }
-    if (check_email_bd($connexion, $email)){
+        $url = "../inscription.php?data=" . urlencode($data);
+        header("Location: " . $url);
+    } else if (check_email_bd($connexion, $email)) {
         $data = "activate_signuperr";
-        $url = "../signup.php?data=" . urlencode($data);
-        header("Location: " . $url); // Redirection vers la page cible
+        $url = "../inscription.php?data=" . urlencode($data);
+        header("Location: " . $url);
+    } else if (!passwordForm($mdp)) {
+        $data = "activate_signuperrmdpform";
+        $url = "../inscription.php?data=" . urlencode($data);
+        header("Location: " . $url);
     }
 
 }

@@ -10,19 +10,31 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/sytle_inscription.css">
+    <link rel="stylesheet" href="css/style_inscription.css">
     <title>MyCoach</title>
 </head>
+<?php
+if (isset($_SESSION['ok'])) {
+    header("Location: accueil.php");
+    exit();
+}
+?>
 <body>
-<form action="php/verif_inscription.php">
-    <input type="text" name="nom"> Nom <br>
-    <input type="text" name="prenom"> Prenom <br>
-    <input type="radio" name="sexe" value="homme"> Homme <br>
-    <input type="radio" name="sexe" value="femme"> Femme <br>
-    <input type="password" name="mdp"> Mot de passe <br>
-    <input type="email" name="email"> Email <br>
+<a href="accueil.php">Accueil</a>
+<form action="php/verif_inscription.php" , method="post">
+    <label for="name">Nom</label>
+    <input type="text" name="nom" required><br>
+    <label for="prenom">Prenom</label>
+    <input type="text" name="prenom" required><br>
+    <label for="sexe">Sexe</label>
+    <input type="radio" name="sexe" value="Homme"> Homme <br>
+    <input type="radio" name="sexe" value="Femme"> Femme <br>
+    <label for="mdp" required>Mot de passe</label>
+    <input type="password" name="mdp"><br>
+    <label for="email">Email</label>
+    <input type="email" name="email" required><br>
     <input type="submit" value="Envoyer">
-    <div class="activate_signuperr"></div>
+    <div id="activate_signuperr"></div>
 </form>
 
 </body>
@@ -30,9 +42,13 @@
     //Fonction appeller lors d'une erreur de connexion
     const urlParams = new URLSearchParams(window.location.search);
     const data = urlParams.get('data');
-    if (data === "activate_signuperrmail") {
+    /*    if (data === "activate_signuperrmail") {
+            madiv = document.getElementById("activate_signuperr");
+            madiv.innerHTML = "Votre email n'est pas valide !";
+        }*/
+    if (data === "activate_signuperrspecial") {
         madiv = document.getElementById("activate_signuperr");
-        madiv.innerHTML = "Votre email n'est pas valide !";
+        madiv.innerHTML = "Votre nom ou prénom contient des caractères spéciaux";
     }
     else if (data ==="activate_signuperrmdp"){
         madiv = document.getElementById("activate_signuperr");
@@ -40,7 +56,11 @@
     }
     else if (data ==="activate_signuperr"){
         madiv = document.getElementById("activate_signuperr");
-        madiv.innerHTML = "Votre email n'est pas valide !";
+        madiv.innerHTML = "Cette adresse email est deja utilisée !";
+    } else if (data === "activate_signuperrmdpform") {
+        madiv = document.getElementById("activate_signuperr");
+        madiv.innerHTML = "Votre mot de passe doit contenir au moins une majuscule et un chiffre";
     }
+
 </script>
 </html>

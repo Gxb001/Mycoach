@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style_login.css">
     <title>Connexion</title>
 </head>
 <?php
@@ -33,6 +34,7 @@ if (isset($_SESSION['ok'])) {
         </div>
         <div id="error_login"></div>
         <button type="submit" class="btn">Se connecter</button>
+        <a href="inscription.php">Pas de compte ? Inscrivez-vous !</a>
     </form>
 </section>
 <script>

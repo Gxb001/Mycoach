@@ -1,10 +1,85 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
 body{
     font-family: 'Kanit', sans-serif;
-    background-color: #FFAA00;
     overflow-x: hidden;
+    background-image: url('../medias/gym.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-#error_login{
-    text-decoration: red;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#formulaire_de_co {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #ff6600;
+}
+
+
+#error_login {
+    text-align: center;
+    color: #ff0000;
+    margin-top: 10px;
+}
+
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    background-image: url('chemin_vers_votre_logo.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin-bottom: 20px;
 }

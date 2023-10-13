@@ -24,8 +24,8 @@ if ($ligne) {
     } else if (password_verify($mdp, $motPasseBdd)) {
         session_start();
         $_SESSION['ok'] = "oui";
-        $_SESSION['ID'] = $ligne['ID_Utilisateur'];
-        $_SESSION['login'] = $login;
+        //$_SESSION['ID'] = $ligne['ID_Utilisateur'];
+        //$_SESSION['login'] = $login;
         // Retour vers la page d'entr�e du site
         header("Location: ../accueil.php");
         // On quitte le script courant sans effectuer les �ventuelles  instructions qui suivent

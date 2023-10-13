@@ -29,15 +29,34 @@ function check_mdp($mdp){
     }
 }
 function signup($connexion, $name, $firstname, $sexe, $mdp_crypte, $email){
-    $sql = "INSERT INTO utilisateurs (Nom, Prenom, Sexe, MDP, Email) VALUES ('$name', '$firstname', '$sexe', '$mdp_crypte', '$email')";
+    $sql = "INSERT INTO utilisateurs (Nom, Prenom, Sexe, MDP, Email, Role) VALUES ('$name', '$firstname', '$sexe', '$mdp_crypte', '$email', 'U')";
     $result = $connexion->exec($sql);
     if ($result) {
+        session_start();
+        $_SESSION['ok'] = "oui";
         header("Location: ../accueil.php");
-        /*afficher un message inscription réussi*/
         exit;
+    }
+}
+
+function passwordForm($str)
+{
+    if (preg_match('/[A-Z]/', $str)) {
+        if (preg_match('/[0-9]/', $str)) {
+            if (inputspecial($str)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+function inputspecial($str)
+{
+    if (preg_match('/^[A-Za-z0-9]*$/', $str)) {
+        return true;
     } else {
-        echo "Erreur lors de l'inscription";
-        /*verifier les email deja existant*/
+        return false;
     }
 }
 ?>
