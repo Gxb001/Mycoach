@@ -39,10 +39,25 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
             <div class="text-center">
                 <h2 class="text-muted">Nos Séances</h2>
                 <p class="lead text-muted">Les entraînements proposés sont triés par niveau :</p>
-                <p class="text-bg-info">Débutant</p>
-                <p class="text-bg-warning">Intermédiaire</p>
-                <p class="text-bg-light">Expert</p>
             </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4 col-lg-3 text-center">
+                    <div class="level-card text-bg-info">
+                        <p class="level-title">Débutant</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 text-center">
+                    <div class="level-card text-bg-warning">
+                        <p class="level-title">Intermédiaire</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 text-center">
+                    <div class="level-card text-bg-light">
+                        <p class="level-title">Expert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
             <?php
             // Vérification de la session utilisateur
             if (!isset($_SESSION['ok'])) {
