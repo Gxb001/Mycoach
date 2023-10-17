@@ -2,7 +2,7 @@
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fs-4" href="#hero-carousel">MyCoach</a>
+            <a class="navbar-brand fs-4" href="#hero-carousel" id="reloadpage">MyCoach</a>
             <button class="navbar-toggler shadow-one border-0" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>

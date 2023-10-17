@@ -3,7 +3,7 @@
 body {
     font-family: 'Kanit', sans-serif;
     background-color: #f3f3f3;
-    overflow-x: hidden;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -2,11 +2,13 @@
 
 body {
     font-family: 'Kanit', sans-serif;
-    overflow-x: hidden;
+    overflow: hidden;
     background-image: url('../medias/gym.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
 }
 
 * {

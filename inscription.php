@@ -48,16 +48,16 @@ if (isset($_SESSION['ok'])) {
         }*/
     if (data === "activate_signuperrspecial") {
         madiv = document.getElementById("activate_signuperr");
-        madiv.innerHTML = "Votre nom ou prénom contient des caractères spéciaux";
+        madiv.innerHTML = "Votre nom ou prénom contient des caractères spéciaux !";
     } else if (data === "activate_signuperrmdp") {
         madiv = document.getElementById("activate_signuperr");
-        madiv.innerHTML = "Votre mot de passe doit contenir au moins 8 caractères";
+        madiv.innerHTML = "Votre mot de passe doit contenir au moins 8 caractères !";
     } else if (data === "activate_signuperr") {
         madiv = document.getElementById("activate_signuperr");
         madiv.innerHTML = "Cette adresse email est deja utilisée !";
     } else if (data === "activate_signuperrmdpform") {
         madiv = document.getElementById("activate_signuperr");
-        madiv.innerHTML = "Votre mot de passe doit contenir au moins une majuscule et un chiffre";
+        madiv.innerHTML = "Votre mot de passe doit contenir au moins une majuscule et un chiffre !";
     }
 
 </script>
