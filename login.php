@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style_login.css">
+    <link rel="stylesheet" href="css/style_loader.css">
     <title>Connexion</title>
 </head>
 <?php
@@ -37,6 +38,7 @@ if (isset($_SESSION['ok'])) {
         <a href="inscription.php">Pas de compte ? Inscrivez-vous !</a>
     </form>
 </section>
+
 <script>
     //Fonction appeller lors d'une erreur de connexion
     const urlParams = new URLSearchParams(window.location.search);
@@ -46,4 +48,8 @@ if (isset($_SESSION['ok'])) {
         madiv.innerHTML = "Login ou mot de passe incorrect ! ";
     }
 </script>
+<script src="js/loader.js"></script>
+<?php
+include 'includes/loader.html';
+?>
 </html>

@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style_inscription.css">
+    <link rel="stylesheet" href="css/style_loader.css">
     <title>MyCoach</title>
 </head>
 <?php
@@ -61,4 +62,8 @@ if (isset($_SESSION['ok'])) {
     }
 
 </script>
+<script src="js/loader.js"></script>
+<?php
+include 'includes/loader.html';
+?>
 </html>

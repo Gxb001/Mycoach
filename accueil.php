@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style_accueil.css">
+    <link rel="stylesheet" href="css/style_loader.css">
     <title>MyCoach</title>
 </head>
 <?php
@@ -104,6 +105,7 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
     // Inclusion du pied de page depuis un fichier externe
     include 'includes/footer.html';
     ?>
+</section>
     <script src="js/bootstrap.js"></script>
     <script>
         // Sélectionnez le bouton par son ID
@@ -115,6 +117,9 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
             location.reload();
         });
     </script>
-
 </body>
+<script src="js/loader.js"></script>
+<?php
+include 'includes/loader.html';
+?>
 </html>
