@@ -89,7 +89,6 @@ body {
     background-color: #f0f0f0;
     color: #333;
 }
-
 /* Styles pour la fenêtre modale */
 .modal-welcome {
     display: none;
@@ -122,3 +121,29 @@ body {
     cursor: pointer;
 }
 
+/* Personnalisation de la barre de navigation - Style foncé avec bordures subtiles */
+.navbar-nav .nav-item {
+    margin: 0 10px; /* Marge entre les éléments */
+}
+
+.navbar-nav .nav-item a {
+    text-decoration: none; /* Supprime le soulignement des liens */
+    color: #fff; /* Couleur du texte */
+    padding: 10px 15px; /* Espacement interne (haut/bas, gauche/droite) */
+    border: 2px solid transparent; /* Bordure transparente */
+    border-radius: 10px; /* Rayon des coins */
+    transition: border-color 0.3s, color 0.3s, background-color 0.3s;
+}
+
+.navbar-nav .nav-item a:hover {
+    background-color: #222; /* Couleur d'arrière-plan au survol plus sombre */
+    color: #fff; /* Couleur du texte au survol */
+    border-color: #fff; /* Couleur de la bordure au survol */
+}
+
+/* Style pour le lien actif (si nécessaire) */
+.navbar-nav .nav-item.active a {
+    background-color: #222; /* Couleur d'arrière-plan pour l'élément actif */
+    color: #fff; /* Couleur du texte pour l'élément actif */
+    border-color: #fff; /* Couleur de la bordure pour l'élément actif */
+}
