@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connectez-vous</title>
-</head>
-<body>
 <?php
 include("connect_bd.php");
+include("functions.php");
 $login = $_POST['email'];
 $mdp = $_POST['mdp'];
 
@@ -24,11 +16,10 @@ if ($ligne) {
     } else if (password_verify($mdp, $motPasseBdd)) {
         session_start();
         $_SESSION['ok'] = "oui";
-        //$_SESSION['ID'] = $ligne['ID_Utilisateur'];
-        //$_SESSION['login'] = $login;
-        // Retour vers la page d'entr�e du site
+        $_SESSION['login'] = namebyemail($connexion, $login);
+        // Retour vers la page d'entree du site
         header("Location: ../accueil.php");
-        // On quitte le script courant sans effectuer les �ventuelles  instructions qui suivent
+        // On quitte le script courant
         exit;
     }
 } else {
@@ -39,6 +30,3 @@ if ($ligne) {
 $result->closeCursor();
 $connexion = null;
 ?>
-</body>
-</script>
-</html>

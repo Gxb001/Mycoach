@@ -39,30 +39,42 @@ function signup($connexion, $name, $firstname, $sexe, $mdp_crypte, $email)
     if ($result) {
         session_start();
         $_SESSION['ok'] = "oui";
+        $_SESSION['login'] = namebyemail($connexion, $email);
         header("Location: ../accueil.php");
         exit;
     }
 }
 
-function passwordForm($str)
+function namebyemail($connexion, $email)
 {
-    if (preg_match('/[A-Z]/', $str)) {
-        if (preg_match('/[0-9]/', $str)) {
-            if (inputspecial($str)) {
-                return true;
-            }
-        }
-    }
-    return false;
-}
-
-function inputspecial($str)
-{
-    if (preg_match('/^[A-Za-z0-9]*$/', $str)) {
-        return true;
+    $sql = "SELECT Prenom FROM utilisateurs WHERE Email = '$email'";
+    $result = $connexion->query($sql);
+    $ligne = $result->fetch();
+    if ($ligne) {
+        return $ligne['Prenom'];
     } else {
         return false;
     }
 }
+
+function passwordForm($str)
+{
+    if (preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).*$/', $str)) {
+        return true;
+    }
+    return false;
+}
+
+
+function validateInputs(array $inputs)
+{
+    foreach ($inputs as $input) {
+        if (preg_match('/[!@#$%^&*()_+{}[\]:;<>,.?~\\\\-]/', $input)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 
 ?>

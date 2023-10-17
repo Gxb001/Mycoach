@@ -43,10 +43,6 @@ if (isset($_SESSION['ok'])) {
     //Fonction appeller lors d'une erreur de connexion
     const urlParams = new URLSearchParams(window.location.search);
     const data = urlParams.get('data');
-    /*    if (data === "activate_signuperrmail") {
-            madiv = document.getElementById("activate_signuperr");
-            madiv.innerHTML = "Votre email n'est pas valide !";
-        }*/
     if (data === "activate_signuperrspecial") {
         madiv = document.getElementById("activate_signuperr");
         madiv.innerHTML = "Votre nom ou prénom contient des caractères spéciaux !";
@@ -58,7 +54,10 @@ if (isset($_SESSION['ok'])) {
         madiv.innerHTML = "Cette adresse email est deja utilisée !";
     } else if (data === "activate_signuperrmdpform") {
         madiv = document.getElementById("activate_signuperr");
-        madiv.innerHTML = "Votre mot de passe doit contenir au moins une majuscule et un chiffre !";
+        madiv.innerHTML = "Votre mot de passe doit contenir au moins une majuscule et un chiffre ainsi qu'un caractère spécial !";
+    } else if (data === "activate_signuperrinputs") {
+        madiv = document.getElementById("activate_signuperr");
+        madiv.innerHTML = "Votre nom ou prénom contient des caractères spéciaux !";
     }
 
 </script>

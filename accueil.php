@@ -58,10 +58,10 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
                 </div>
             </div>
         </div>
-            <?php
-            // Vérification de la session utilisateur
-            if (!isset($_SESSION['ok'])) {
-                echo '<div class="container mt-5">
+        <?php
+        // Vérification de la session utilisateur
+        if (!isset($_SESSION['ok'])) {
+            echo '<div class="container mt-5">
                     <div class="row justify-content-center">
                         <div class="col-md-6">
                             <div class="card">
@@ -76,19 +76,19 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
                         </div>
                     </div>
                 </div>';
-            } else {
-                // Requête pour récupérer les séances à venir
-                $req_seanceSp = "SELECT Nom_seance, Date, Horaire, Niveau, Description FROM seances WHERE Date >= CURDATE();";
-                $result_seanceSp = $connexion->query($req_seanceSp);
-                // Tableau associatif pour définir les classes de niveau
-                $niveau = array(
-                    "Debutant" => "text-bg-info",
-                    "Intermediaire" => "text-bg-warning",
-                    "Expert" => "text-bg-light"
-                );
-                // Affichage des séances
-                while ($ligne_seanceSp = $result_seanceSp->fetch()) {
-                    echo '<div class="row my-5 align-items-center justify-content-center">
+        } else {
+            // Requête pour récupérer les séances à venir
+            $req_seanceSp = "SELECT Nom_seance, Date, Horaire, Niveau, Description FROM seances WHERE Date >= CURDATE();";
+            $result_seanceSp = $connexion->query($req_seanceSp);
+            // Tableau associatif pour définir les classes de niveau
+            $niveau = array(
+                "Debutant" => "text-bg-info",
+                "Intermediaire" => "text-bg-warning",
+                "Expert" => "text-bg-light"
+            );
+            // Affichage des séances
+            while ($ligne_seanceSp = $result_seanceSp->fetch()) {
+                echo '<div class="row my-5 align-items-center justify-content-center">
                         <div class="col-8 col-lg-4 col-xl-3 text">
                             <div class="card shadow-one border-0 ' . $niveau[$ligne_seanceSp["Niveau"]] . ' ">
                                 <div class="card-body text-center py-4">
@@ -100,10 +100,10 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
                             </div>
                         </div>
                     </div>';
-                }
-                $result_seanceSp->closeCursor();
             }
-            ?>
+            $result_seanceSp->closeCursor();
+        }
+        ?>
     </section>
     <!--Coach-->
     <?php
@@ -121,17 +121,42 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
     include 'includes/footer.html';
     ?>
 </section>
-    <script src="js/bootstrap.js"></script>
-    <script>
-        // Sélectionnez le bouton par son ID
-        var reloadpage = document.getElementById('reloadpage');
+<div id="welcomeModal" class="modal-welcome">
+    <div class="modal-content-welcome">
+        <span class="close-welcome" onclick="closeModal()">&times;</span>
+        <p>Bienvenue, <?php echo $_SESSION['login']; ?></p>
+    </div>
+</div>
+<script src="js/bootstrap.js"></script>
+<script>
+    // Sélectionnez le bouton par son ID
+    var reloadpage = document.getElementById('reloadpage');
 
-        // Ajoutez un écouteur d'événements "click" sur le bouton
-        reloadpage.addEventListener('click', function () {
-            // Utilisez la méthode location.reload() pour recharger la page
-            location.reload();
-        });
-    </script>
+    // Ajoutez un écouteur d'événements "click" sur le bouton
+    reloadpage.addEventListener('click', function () {
+        // Utilisez la méthode location.reload() pour recharger la page
+        location.reload();
+    });
+</script>
+<script>
+    // JavaScript pour afficher la fenêtre modale
+    var isLoggedIn = <?php echo isset($_SESSION['ok']) ? 'true' : 'false'; ?>;
+
+    if (isLoggedIn) {
+        var modal = document.getElementById('welcomeModal');
+        modal.style.display = 'block';
+    }
+
+    // JavaScript pour fermer la fenêtre modale
+    function closeModal() {
+        var modal = document.getElementById('welcomeModal');
+        modal.style.display = 'none';
+    }
+
+    setTimeout(function () {
+        closeModal();
+    }, 3000);
+</script>
 </body>
 <script src="js/loader.js"></script>
 <?php
