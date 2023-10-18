@@ -137,10 +137,9 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
         // Utilisez la méthode location.reload() pour recharger la page
         location.reload();
     });
-</script>
-<script>
+
     // JavaScript pour afficher la fenêtre modale
-    var isLoggedIn = <?php echo isset($_SESSION['ok']) ? 'true' : 'false'; ?>;
+    var isLoggedIn = <?php echo isset($_SESSION['logged']) ? 'true' : 'false'; ?>;
 
     if (isLoggedIn) {
         var modal = document.getElementById('welcomeModal');

@@ -1,5 +1,6 @@
 <?php
-/*verif du format de l'email*/
+
+// Fonction pour vérifier si une adresse email est valide
 function check_email($email)
 {
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -9,7 +10,7 @@ function check_email($email)
     }
 }
 
-/*verifie si l'email est deja utilisé*/
+// Fonction pour vérifier si une adresse email existe dans la base de données
 function check_email_bd($connexion, $email)
 {
     $sql = "SELECT * FROM utilisateurs WHERE Email = '$email'";
@@ -22,7 +23,7 @@ function check_email_bd($connexion, $email)
     }
 }
 
-/*necessite une taille minimum de mdp*/
+// Fonction pour vérifier si un mot de passe est suffisamment long
 function check_mdp($mdp)
 {
     if (strlen($mdp) < 8) {
@@ -32,6 +33,7 @@ function check_mdp($mdp)
     }
 }
 
+// Fonction pour inscrire un nouvel utilisateur dans la base de données
 function signup($connexion, $name, $firstname, $sexe, $mdp_crypte, $email)
 {
     $sql = "INSERT INTO utilisateurs (Nom, Prenom, Sexe, MDP, Email, Role) VALUES ('$name', '$firstname', '$sexe', '$mdp_crypte', '$email', 'U')";
@@ -40,11 +42,13 @@ function signup($connexion, $name, $firstname, $sexe, $mdp_crypte, $email)
         session_start();
         $_SESSION['ok'] = "oui";
         $_SESSION['login'] = namebyemail($connexion, $email);
+        $_SESSION['logged'] = "true";
         header("Location: ../accueil.php");
         exit;
     }
 }
 
+// Fonction pour obtenir le prénom d'un utilisateur en utilisant son adresse email
 function namebyemail($connexion, $email)
 {
     $sql = "SELECT Prenom FROM utilisateurs WHERE Email = '$email'";
@@ -57,6 +61,7 @@ function namebyemail($connexion, $email)
     }
 }
 
+// Fonction pour vérifier la complexité d'un mot de passe
 function passwordForm($str)
 {
     if (preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).*$/', $str)) {
@@ -65,7 +70,7 @@ function passwordForm($str)
     return false;
 }
 
-
+// Fonction pour valider les entrées contre des caractères spéciaux
 function validateInputs(array $inputs)
 {
     foreach ($inputs as $input) {
@@ -75,6 +80,5 @@ function validateInputs(array $inputs)
     }
     return true;
 }
-
 
 ?>
