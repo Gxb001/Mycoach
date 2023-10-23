@@ -151,6 +151,7 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
         var modal = document.getElementById('welcomeModal');
         modal.style.display = 'none';
     }
+
     setTimeout(function () {
         closeModal();
     }, 3000);
