@@ -1,7 +1,7 @@
 <!--//formulaire d'incription pour un utilisateur contenant : Nom, Prenom, Sexe, mot de passe, email.
 //le mot de passe est crypté avec la fonction password_hash() de php
 //le sexe est un bouton radio
-//le formulaire est envoyé à la page inscription.php
+//le formulaire est envoyé à la page verif_inscription.php
 //la page inscription.php contient un tableau qui affiche les données saisies par l'utilisateur-->
 
 <!DOCTYPE html>

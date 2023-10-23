@@ -132,13 +132,11 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
     // Sélectionnez le bouton par son ID
     var reloadpage = document.getElementById('reloadpage');
 
-    // Ajoutez un écouteur d'événements "click" sur le bouton
     reloadpage.addEventListener('click', function () {
-        // Utilisez la méthode location.reload() pour recharger la page
         location.reload();
     });
 
-    // JavaScript pour afficher la fenêtre modale
+    //afficher la fenêtre modale
     var isLoggedIn = <?php echo isset($_SESSION['logged']) ? 'true' : 'false'; ?>;
 
     if (isLoggedIn) {
@@ -146,7 +144,7 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
         modal.style.display = 'block';
     }
 
-    // JavaScript pour fermer la fenêtre modale
+    //fermer la fenêtre modale
     function closeModal() {
         var modal = document.getElementById('welcomeModal');
         modal.style.display = 'none';
